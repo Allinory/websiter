@@ -20,7 +20,7 @@
       background-color: #EDEEF0;
     }
 
-    .container {
+    .login-form {
       text-align: center;
       padding: 32px 24px;
       background-color: white;
@@ -29,7 +29,7 @@
       border-radius: 12px;
     }
 
-    .container__header{
+    .login-form__header-text{
       text-align: center;
       font-size: 20px;
       margin-top: 16px;
@@ -56,59 +56,80 @@
       outline: 1px solid #477DBB;
     }
 
-    .checkmark-container {
+    .check-save-login {
       display: flex;
       flex-direction: row;
       align-items: center;
       margin-top: 12px;
-    }
-
-    .checkmark-container__inner{
       position: relative;
       white-space: nowrap;
-      display: block;
     }
 
-    .checkmark-container__display{
+    .check-save-login__checkmark-display{
       display: flex;
       width: 100%;
     }
 
-    .checkmark-container__label{
+    .checkmark-display__check-label-text{
       color: #818c99;
       font-size: 13px;
       line-height: 19px;
       margin-left: 6px;
     }
 
-    .checkmark-container__checkmark{
+    .checkmark-display__checkbox{
       height: 23px;
       width: 20px;
     }
 
-    .checkmark-container__question{
+    .checkmark-display__moreinfo-icon{
       color: #aeb7c2;
       margin-left: 4px;
       vertical-align: middle;
       align-content: center;
       line-height: 19px;
     }
-    .button {
-      background-color: #447BBA;
+
+    .moreinfo-icon__hover-text{
+      width: 260px;
+      padding: 11px 12px;
+      font-size: 13px;
+      line-height: 1.35;
+      white-space: normal;
+      text-align: left;
+      position: absolute;
       box-sizing: border-box;
+      top: 110%;
+      left: 50%;
+      transform: translate(-50%, 15%);
+      color: black;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .3), 0 0 1px 0 rgba(0, 20, 51, .4);
+      opacity: 0;
+      z-index: 110;
+      transition: opacity 0.3s ease, transform 0.15s ease;
+      transition-delay: 0.15s
+    }
+    .checkmark-display__moreinfo-icon:hover .moreinfo-icon__hover-text{
+      transform: translate(-50%, 0);
+      opacity: 1;
+      transition-delay: 0.1s
+    }
+
+    .login-button {
+      background-color: #447BBA;
       width: 100%;
       border: none;
       color: white;
-      text-align: center;
       font-family: "Source Sans Pro";
       font-size: 14px;
       font-weight: 500;
-      display: inline-block;
       padding: 8px 12px;
       border-radius: 8px;
     }
 
-    .qr-container {
+    .qr-login-panel {
       display: flex;
       align-items: flex-start;
       border-top: 1px solid #DDE2E7;
@@ -117,11 +138,11 @@
       margin-bottom: -8px;
     }
 
-    .qr-container__qr{
+    .qr-login-panel__qr-image{
       padding: 4px;
     }
 
-    .qr-container__textDisplay{
+    .qr-login-panel__text-panel{
       margin-left: 8px;
       justify-content: center;
       align-self: center;
@@ -129,23 +150,6 @@
       text-align: left;
     }
 
-    .qr-container__line1 {
-      line-height: 18px;
-      margin-bottom: 4px;
-      font-weight: 500;
-    }
-
-    .qr-container__line2{
-      font-size: 13px;
-      line-height: 16px;
-      color: #6d7885;
-      margin-bottom: 8px;
-    }
-
-    .qr-container__line3{
-      font-size: 13px;
-      line-height: 16px;
-    }
     a {
       text-decoration: none;
     }
@@ -173,71 +177,107 @@
 </head>
 
 <body>
-  <body class="page">
-    <form>
-      <div class="container">
-        <img
-          src="icon2.png"
-          alt="Логотип сайта."
-          width="49"
-          height="48"
-          class="img">
-        <div class="container__header">
-          Вход ВКонтакте
-        </div>
-        <input
-          type="text"
-          value placeholder="Телефон или почта">
-        <div class="checkmark-container">
-          <div class="checkmark-container__inner">
-            <div class="checkmark-container__display">
-              <div class="checkmark-container__checkmark">
-                <input type="checkbox" id="check">
-              </div>
-              <div class="checkmark-container__label">
-                <label for="check">Сохранить вход</label>
-              </div>
-              <div class="checkmark-container__question">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 12A6 6 0 1 0 6 0a6 6 0 0 0 0 12zm.64-5c-.08.36-.28.57-.66.57-.45 0-.71-.32-.71-.76v-.07c0-.64.32-1.06.95-1.43.68-.41.89-.68.89-1.17 0-.53-.4-.9-.99-.9-.52 0-.87.26-1.04.74-.13.35-.37.5-.7.5-.41 0-.67-.27-.67-.68 0-.23.05-.43.16-.64C4.2 2.46 5.05 2 6.19 2c1.5 0 2.52.84 2.52 2.09 0 .81-.39 1.36-1.13 1.81-.7.41-.87.64-.94 1.1zm.22 2.16A.85.85 0 0 1 6 10a.85.85 0 0 1-.86-.84.85.85 0 0 1 .86-.85.85.85 0 0 1 .87.85z" fill="currentColor">
-                    </path>
-                  </svg>
-              </div>
-            </div>
+  <div class="page">
+    <div class="login-form">
+      <img
+        src="icon2.png"
+        alt="Логотип сайта."
+        width="49"
+        height="48"
+        class="img"
+      >
+      <div class="login-form__header-text">
+        Вход ВКонтакте
+      </div>
+      <input
+        type="text"
+        value placeholder="Телефон или почта"
+      >
+      <div class="check-save-login">
+        <div class="check-save-login__checkmark-display">
+          <div class="checkmark-display__checkbox">
+            <input type="checkbox" id="check">
           </div>
-        </div>
-        <button id="button" class="button"> Войти </button>
-        <div class="qr-container">
-          <div class="qr-container__qr">
-           <img
-              src="qr-code.png"
-              alt="Qr-код."
-              width="68"
-              height="68">
+          <div class="checkmark-display__check-label-text">
+            <label for="check">Сохранить вход</label>
           </div>
-          <div class="qr-container__textDisplay">
-            <div class="qr-container__line1">
-              <span>Быстрый вход по QR-коду</span>
-            </div>
-            <div class="qr-container__line2">
-              <span>Наведите камеру телефона</span>
-            </div>
-            <div class="qr-container__line3">
-              <a href="https://www.tumblr.com/thenatsdorf/190897872779/black-cats-are-lucky-via-leahweissmuller?source=share">
-                <span>Подробнее</span>
-              </a>
-            </div>
+          <div class="checkmark-display__moreinfo-icon">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M6 12A6 6 0 1 0 6 0a6 6 0 0 0 0 12zm.64-5c-.08.36-.28.57-.66.57-.45 0-.71-.32-.71-.76v-.07c0-.64.32-1.06.95-1.43.68-.41.89-.68.89-1.17 0-.53-.4-.9-.99-.9-.52 0-.87.26-1.04.74-.13.35-.37.5-.7.5-.41 0-.67-.27-.67-.68 0-.23.05-.43.16-.64C4.2 2.46 5.05 2 6.19 2c1.5 0 2.52.84 2.52 2.09 0 .81-.39 1.36-1.13 1.81-.7.41-.87.64-.94 1.1zm.22 2.16A.85.85 0 0 1 6 10a.85.85 0 0 1-.86-.84.85.85 0 0 1 .86-.85.85.85 0 0 1 .87.85z"
+                fill="currentColor"
+              >
+              </path>
+            </svg>
+            <div class="moreinfo-icon__hover-text">
+              <div style=
+                     "font-weight: 500;
+                     margin-bottom: 6px"
+              >
+                Сохранить вход
+              </div>
+              Выберите, чтобы сохранить данные аккаунта для быстрого входа на этом устройстве</div>
           </div>
         </div>
       </div>
-    </form>
+      <button
+        id="login-button"
+        class="login-button"
+      >
+        Войти
+      </button>
+      <div class="qr-login-panel">
+        <div class="qr-login-panel__qr-image">
+         <img
+            src="qr-code.png"
+            alt="Qr-код."
+            width="68"
+            height="68"
+         >
+        </div>
+        <div class="qr-login-panel__text-panel">
+          <div style=
+                 "font-weight: 500;
+                 margin-bottom: 4px;
+                 line-height: 18px"
+          >
+            Быстрый вход по QR-коду
+          </div>
+          <div style=
+                 "font-size: 13px;
+                 line-height: 16px;
+                 color: #6d7885;
+                 margin-bottom: 8px"
+          >
+            Наведите камеру телефона
+          </div>
+          <div style=
+                 "font-size: 13px;
+                 line-height: 16px"
+          >
+            <a href="https://www.tumblr.com/thenatsdorf/190897872779/black-cats-are-lucky-via-leahweissmuller?source=share">
+             Подробнее
+           </a>
+          </div>
+        </div>
+       </div>
+    </div>
     <script>
-      document.getElementById('button').addEventListener('click', function() {
+      document.getElementById('login-button').addEventListener('click', function(event) {
+        event.preventDefault()
         const checkboxState = document.getElementById('check').checked;
         console.log(checkboxState);
       });
     </script>
-  </body>
+  </div>
 </body>
 
 </html>
