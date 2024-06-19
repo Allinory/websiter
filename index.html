@@ -12,7 +12,7 @@
       align-items: center;
       height: 100vh;
       font-size: 14px;
-      font-family: "Source Sans Pro";
+      font-family: "Roboto", sans-serif;
     }
 
     body{
@@ -24,26 +24,23 @@
       text-align: center;
       padding: 32px 24px;
       background-color: white;
-      width: 272px;
-      height: 331px;
       border-radius: 12px;
     }
 
-    .login-form__header-text{
-      text-align: center;
+    .login-form__form-title{
       font-size: 20px;
+      font-weight: 500;
+      text-align: center;
       margin-top: 16px;
       margin-bottom: 20px;
-      font-weight: 500;
     }
 
     input[type=text]{
-      background-color: #F0F2F5;
-      color: black;
-      height: 36px;
       width: 100%;
-      box-sizing: border-box;
+      height: 36px;
       padding: 8px 12px;
+      background-color: #F0F2F5;
+      box-sizing: border-box;
       border-radius: 8px;
       border: 1px solid #E3E5E8;
     }
@@ -56,97 +53,109 @@
       outline: 1px solid #477DBB;
     }
 
-    .check-save-login {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-top: 12px;
+    .login-form__remember-me.remember-me{
       position: relative;
-      white-space: nowrap;
-    }
-
-    .check-save-login__checkmark-display{
       display: flex;
-      width: 100%;
+      margin-top: 12px;
     }
 
-    .checkmark-display__check-label-text{
-      color: #818c99;
+    .remember-me__checkbox{
+      height: 23px;
+    }
+
+    .remember-me__save-login{
+      margin-left: 6px;
       font-size: 13px;
       line-height: 19px;
-      margin-left: 6px;
+      color: #818c99;
     }
 
-    .checkmark-display__checkbox{
-      height: 23px;
-      width: 20px;
-    }
-
-    .checkmark-display__moreinfo-icon{
-      color: #aeb7c2;
-      margin-left: 4px;
-      vertical-align: middle;
+    .remember-me__moreinfo-icon{
       align-content: center;
       line-height: 19px;
+      margin-left: 4px;
+      color: #aeb7c2;
     }
 
-    .moreinfo-icon__hover-text{
+    .moreinfo-icon__tooltip.tooltip{
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translate(-50%, 15%);
       width: 260px;
       padding: 11px 12px;
       font-size: 13px;
       line-height: 1.35;
-      white-space: normal;
       text-align: left;
-      position: absolute;
       box-sizing: border-box;
-      top: 110%;
-      left: 50%;
-      transform: translate(-50%, 15%);
       color: black;
       background-color: white;
       border-radius: 8px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, .3), 0 0 1px 0 rgba(0, 20, 51, .4);
       opacity: 0;
-      z-index: 110;
       transition: opacity 0.3s ease, transform 0.15s ease;
-      transition-delay: 0.15s
+      transition-delay: 0.15s;
     }
-    .checkmark-display__moreinfo-icon:hover .moreinfo-icon__hover-text{
+
+    .tooltip__tip-title{
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .remember-me__moreinfo-icon:hover .moreinfo-icon__tooltip{
       transform: translate(-50%, 0);
       opacity: 1;
       transition-delay: 0.1s
     }
 
     .login-button {
-      background-color: #447BBA;
       width: 100%;
-      border: none;
-      color: white;
-      font-family: "Source Sans Pro";
+      padding: 8px 12px;
+      font-family: "Roboto", sans-serif;
       font-size: 14px;
       font-weight: 500;
-      padding: 8px 12px;
+      color: white;
+      background-color: #447BBA;
+      border: none;
       border-radius: 8px;
     }
 
-    .qr-login-panel {
+    .login-form__qr-login.qr-login {
       display: flex;
-      align-items: flex-start;
-      border-top: 1px solid #DDE2E7;
+      align-items: center;
       padding-top: 20px;
       margin-top: 24px;
       margin-bottom: -8px;
+      border-top: 1px solid #DDE2E7;
     }
 
-    .qr-login-panel__qr-image{
+    .qr-login__qr-code{
+      align-self: flex-start;
       padding: 4px;
     }
 
-    .qr-login-panel__text-panel{
+    .qr-login__instructions-for-qr-login{
+      display: flex;
+      flex-direction: column;
       margin-left: 8px;
-      justify-content: center;
-      align-self: center;
-      align-items: stretch;
+    }
+
+    .instructions-for-qr-login__quick-entry-with-qr{
+      margin-bottom: 4px;
+      font-weight: 500;
+      text-align: left;
+      line-height: 18px;
+    }
+    .instructions-for-qr-login__instructions{
+      font-size: 13px;
+      line-height: 16px;
+      text-align: left;
+      color: #6d7885;
+      margin-bottom: 8px;
+    }
+    .instructions-for-qr-login__more-detail{
+      font-size: 13px;
+      line-height: 16px;
       text-align: left;
     }
 
@@ -158,10 +167,13 @@
     }
   </style>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ВКонтакте | Добро пожаловать</title>
-  <link rel="stylesheet" href="css/style.css">
   <meta name="description" content="">
 
 
@@ -186,22 +198,24 @@
         height="48"
         class="img"
       >
-      <div class="login-form__header-text">
+      <div class="login-form__form-title">
         Вход ВКонтакте
       </div>
       <input
         type="text"
         value placeholder="Телефон или почта"
       >
-      <div class="check-save-login">
-        <div class="check-save-login__checkmark-display">
-          <div class="checkmark-display__checkbox">
-            <input type="checkbox" id="check">
+        <div class="login-form__remember-me remember-me">
+          <div class="remember-me__checkbox">
+            <input
+              id="check"
+              type="checkbox"
+            >
           </div>
-          <div class="checkmark-display__check-label-text">
+          <div class="remember-me__save-login">
             <label for="check">Сохранить вход</label>
           </div>
-          <div class="checkmark-display__moreinfo-icon">
+          <div class="remember-me__moreinfo-icon">
             <svg
               width="12"
               height="12"
@@ -217,25 +231,21 @@
               >
               </path>
             </svg>
-            <div class="moreinfo-icon__hover-text">
-              <div style=
-                     "font-weight: 500;
-                     margin-bottom: 6px"
-              >
+            <div class="moreinfo-icon__tooltip tooltip">
+              <div class="tooltip__tip-title">
                 Сохранить вход
               </div>
               Выберите, чтобы сохранить данные аккаунта для быстрого входа на этом устройстве</div>
           </div>
         </div>
-      </div>
       <button
         id="login-button"
         class="login-button"
       >
         Войти
       </button>
-      <div class="qr-login-panel">
-        <div class="qr-login-panel__qr-image">
+      <div class="login-form__qr-login qr-login">
+        <div class="qr-login__qr-code">
          <img
             src="qr-code.png"
             alt="Qr-код."
@@ -243,33 +253,22 @@
             height="68"
          >
         </div>
-        <div class="qr-login-panel__text-panel">
-          <div style=
-                 "font-weight: 500;
-                 margin-bottom: 4px;
-                 line-height: 18px"
-          >
+        <div class="qr-login__instructions-for-qr-login">
+          <div class="instructions-for-qr-login__quick-entry-with-qr">
             Быстрый вход по QR-коду
           </div>
-          <div style=
-                 "font-size: 13px;
-                 line-height: 16px;
-                 color: #6d7885;
-                 margin-bottom: 8px"
-          >
+          <div class="instructions-for-qr-login__instructions">
             Наведите камеру телефона
           </div>
-          <div style=
-                 "font-size: 13px;
-                 line-height: 16px"
-          >
+          <div class="instructions-for-qr-login__more-detail">
             <a href="https://www.tumblr.com/thenatsdorf/190897872779/black-cats-are-lucky-via-leahweissmuller?source=share">
              Подробнее
            </a>
           </div>
         </div>
-       </div>
+      </div>
     </div>
+  </div>
     <script>
       document.getElementById('login-button').addEventListener('click', function(event) {
         event.preventDefault()
