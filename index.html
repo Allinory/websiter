@@ -35,7 +35,7 @@
       margin-bottom: 20px;
     }
 
-    input[type=text]{
+    .login-form__login-field{
       width: 100%;
       height: 36px;
       padding: 8px 12px;
@@ -45,17 +45,20 @@
       border: 1px solid #E3E5E8;
     }
 
-    input[type=text]::placeholder {
+    .login-form__login-field::placeholder {
       color: #757575;
     }
 
-    input[type=text]:focus {
+    .login-form__login-field:focus {
       outline: 1px solid #477DBB;
     }
 
-    .login-form__remember-me.remember-me{
-      position: relative;
-      display: flex;
+    .remember-me{
+    position: relative;
+    display: flex;
+    }
+
+    .login-form__remember-me{
       margin-top: 12px;
     }
 
@@ -70,18 +73,19 @@
       color: #818c99;
     }
 
-    .remember-me__moreinfo-icon{
+    .moreinfo-icon {
+      position: relative;
       align-content: center;
       line-height: 19px;
-      margin-left: 4px;
       color: #aeb7c2;
     }
 
-    .moreinfo-icon__tooltip.tooltip{
+    .remember-me__moreinfo-icon{
+      margin-left: 4px;
+    }
+
+    .tooltip{
       position: absolute;
-      top: 110%;
-      left: 50%;
-      transform: translate(-50%, 15%);
       width: 260px;
       padding: 11px 12px;
       font-size: 13px;
@@ -97,18 +101,24 @@
       transition-delay: 0.15s;
     }
 
+    .moreinfo-icon__tooltip{
+      top: 110%;
+      left: 50%;
+      transform: translate(-50%, 15%);
+    }
+
     .tooltip__tip-title{
       margin-bottom: 6px;
       font-weight: 500;
     }
 
-    .remember-me__moreinfo-icon:hover .moreinfo-icon__tooltip{
+    .remember-me__moreinfo-icon svg:hover + .moreinfo-icon__tooltip{
       transform: translate(-50%, 0);
       opacity: 1;
       transition-delay: 0.1s
     }
 
-    .login-button {
+    .login-form__login-button {
       width: 100%;
       padding: 8px 12px;
       font-family: "Roboto", sans-serif;
@@ -120,13 +130,17 @@
       border-radius: 8px;
     }
 
-    .login-form__qr-login.qr-login {
+    .qr-login{
       display: flex;
       align-items: center;
       padding-top: 20px;
+      border-top: 1px solid #DDE2E7;
+    }
+
+
+    .login-form__qr-login {
       margin-top: 24px;
       margin-bottom: -8px;
-      border-top: 1px solid #DDE2E7;
     }
 
     .qr-login__qr-code{
@@ -140,7 +154,7 @@
       margin-left: 8px;
     }
 
-    .instructions-for-qr-login__quick-entry-with-qr{
+    .instructions-for-qr-login__title{
       margin-bottom: 4px;
       font-weight: 500;
       text-align: left;
@@ -203,6 +217,7 @@
       </div>
       <input
         type="text"
+        class="login-form__login-field"
         value placeholder="Телефон или почта"
       >
         <div class="login-form__remember-me remember-me">
@@ -215,7 +230,7 @@
           <div class="remember-me__save-login">
             <label for="check">Сохранить вход</label>
           </div>
-          <div class="remember-me__moreinfo-icon">
+          <div class="remember-me__moreinfo-icon moreinfo-icon">
             <svg
               width="12"
               height="12"
@@ -240,7 +255,7 @@
         </div>
       <button
         id="login-button"
-        class="login-button"
+        class="login-form__login-button"
       >
         Войти
       </button>
@@ -254,7 +269,7 @@
          >
         </div>
         <div class="qr-login__instructions-for-qr-login">
-          <div class="instructions-for-qr-login__quick-entry-with-qr">
+          <div class="instructions-for-qr-login__title">
             Быстрый вход по QR-коду
           </div>
           <div class="instructions-for-qr-login__instructions">
@@ -269,14 +284,13 @@
       </div>
     </div>
   </div>
-    <script>
-      document.getElementById('login-button').addEventListener('click', function(event) {
-        event.preventDefault()
-        const checkboxState = document.getElementById('check').checked;
-        console.log(checkboxState);
-      });
-    </script>
-  </div>
 </body>
+<script>
+  document.getElementById('login-button').addEventListener('click', function(event) {
+    event.preventDefault()
+    const checkboxState = document.getElementById('check').checked;
+    console.log(checkboxState);
+  });
+</script>
 
 </html>
